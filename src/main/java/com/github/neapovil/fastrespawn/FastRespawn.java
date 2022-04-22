@@ -36,8 +36,10 @@ public final class FastRespawn extends JavaPlugin implements Listener
     {
         event.setCancelled(true);
 
-        event.getPlayer().spigot().respawn();
-
         event.getPlayer().showTitle(Title.title(Component.text("You died!", NamedTextColor.RED), Component.text("")));
+
+        event.getPlayer().getInventory().clear();
+
+        event.getPlayer().spigot().respawn();
     }
 }
