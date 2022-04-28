@@ -1,6 +1,7 @@
 package com.github.neapovil.fastrespawn;
 
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -31,7 +32,7 @@ public final class FastRespawn extends JavaPlugin implements Listener
         return instance;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void playerDeath(PlayerDeathEvent event)
     {
         event.setCancelled(true);
