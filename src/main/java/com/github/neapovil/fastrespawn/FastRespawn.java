@@ -27,17 +27,17 @@ public final class FastRespawn extends JavaPlugin implements Listener
     {
     }
 
-    public static FastRespawn getInstance()
+    public static FastRespawn instance()
     {
         return instance;
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void playerDeath(PlayerDeathEvent event)
+    private void playerDeath(PlayerDeathEvent event)
     {
         event.setCancelled(true);
 
-        event.getPlayer().showTitle(Title.title(Component.text("You died!", NamedTextColor.RED), Component.text("")));
+        event.getPlayer().showTitle(Title.title(Component.translatable("deathScreen.title", NamedTextColor.RED), Component.empty()));
 
         event.getPlayer().getInventory().clear();
 
